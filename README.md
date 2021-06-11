@@ -17,7 +17,7 @@
 Eine WPF-app erstellen, die folgendes tut:
 1. Beim Start alle Dateipfade und Dateiinhalte ab einem bestimmten Pfad rekursiv indexieren , dh. eine Liste von allen Dateipfaden und Dateiinhalten in allen Unterordnern erstellen
 2. Diese indexierung sollte entweder auf Intervall, oder nur wenn sich Dateien ändern / hinzugefügt / entfernt werden, erneut ausgeführt werden
-3. Diese Liste in eine (oder mehrere) Datenbank-Tabelle schreiben, sodass man in Schritt 3 eine sehr schnelle und effiziente Suche hat
+3. Diese Liste in eine (oder mehrere) Datenbank-Tabelle schreiben, sodass man in Schritt 4 eine sehr schnelle und effiziente Suche hat
 4. Eine Suchleiste einbauen, die von diesen Datenbank-Einträgen die passenden raussucht und anzeigt
   
 Optionale Features:
