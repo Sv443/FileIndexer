@@ -3,8 +3,7 @@
 <div align="center" style="text-align: center;">
 
 # FileIndexer
-### E2FI5 - Gruppe 2 - SAE Projekt
-
+### SAE Projekt - E2FI5 - Gruppe 2
 <!-- evtl hier bild(er) vom programm -->
 
 ---
