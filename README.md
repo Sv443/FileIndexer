@@ -33,7 +33,7 @@ Optionale Features:
   
 ## Arbeits-Organisierung:
 - Wir erstellen für bestimmte Features ein Issue ([hier](https://github.com/Sv443/FileIndexer/issues/new/choose))  
-- Wir fügen dieses Issue dann in unser Kanban-Board ein ([hier](https://github.com/Sv443/FileIndexer/projects/1)), das macht alle Aufgaben und deren Status übersichtlich
+- Wir fügen dieses Issue dann in unser Projekt-Board ein ([hier](https://github.com/Sv443/FileIndexer/projects/1)), das macht alle Aufgaben und deren Status übersichtlich
 - Im Kanban-Board werden dann die Issues bearbeitet und geschlossen, wenn sie fertig sind
 - Jedes Feature bekommt seinen eigenen Branch (sehr wichtig, erkläre ich noch) und die werden dann per Pull Request ([hier](https://github.com/Sv443/FileIndexer/pulls)) auf den Haupt-Code (`main` Branch) übertragen
 
