@@ -18,11 +18,13 @@ jobs:
       security-events: write
 
     env:
+      Solution_Path: FileIndexer/FileIndexer.sln
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     strategy:
       fail-fast: false
       matrix:
+        targetplatform: [ x64 ]
         language: [ 'csharp' ]
 
     steps:
@@ -42,10 +44,11 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    - name: Build
-      run: |
-        cd FileIndexer
-        dotnet build FileIndexer.sln --runtime win10-x64 --configuration Release --no-restore
+    - name: Build App
+      run: msbuild $env:Solution_Path /p:Platform=$env:TargetPlatform /p:Configuration=$env:Configuration
+      env:
+        Configuration: Debug
+        TargetPlatform: ${{ matrix.targetplatform }}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
