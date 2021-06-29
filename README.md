@@ -27,9 +27,10 @@ Optionale Features:
 ## Aufgabenverteilung:
 | Wer? | Hauptaufgabe |
 | :-- | :-- |
-| **Giuseppe** | Datenbank |
-| **Emin** | Oberfläche |
-| **Sven** | Backend |
+| **Giuseppe** (@Anchor05) | Datenbank |
+| **Emin** (@schneemin) | Oberfläche |
+| **Sven** (@Sv443) | Backend |
+| **Nico** (@itsoggin) | TBD |
   
 <br>
   
