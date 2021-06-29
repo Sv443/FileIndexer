@@ -43,7 +43,9 @@ jobs:
         languages: ${{ matrix.language }}
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: |
+        cd FileIndexer
+        dotnet build FileIndexer.sln --configuration Release --no-restore
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
