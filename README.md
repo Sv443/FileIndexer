@@ -27,10 +27,10 @@ Optionale Features:
 ## Aufgabenverteilung:
 | Wer? | Hauptaufgabe |
 | :-- | :-- |
-| **Giuseppe** (@Anchor05) | Datenbank |
-| **Emin** (@schneemin) | Oberfläche |
-| **Sven** (@Sv443) | Backend |
-| **Nico** (@itsoggin) | TBD |
+| **Giuseppe** ([@Anchor05](https://github.com/Anchor05)) | Datenbank |
+| **Emin** ([@schneemin](https://github.com/schneemin)) | Oberfläche |
+| **Sven** ([@Sv443](https://github.com/Sv443)) | Backend |
+| **Nico** ([@itsoggin](https://github.com/itsoggin)) | TBD |
   
 <br>
   
