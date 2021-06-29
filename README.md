@@ -25,9 +25,11 @@ Optionale Features:
 <br>
   
 ## Aufgabenverteilung:
-| Wer? | Rolle | Was? |
-| :-- | :-- | :--- |
-| **Name** | Frontend | Aufgabe 1, Aufgabe 2 |
+| Wer? | Hauptaufgabe |
+| :-- | :-- |
+| **Giuseppe** | Datenbank |
+| **Emin** | Oberfläche |
+| **Sven** | Backend |
   
 <br>
   
