@@ -1,16 +1,14 @@
-name: "CodeQL"
+name: "Build"
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '31 23 * * 2'
 
 jobs:
-  analyze:
-    name: Analyze
+  build:
+    name: Build
     runs-on: windows-latest
     permissions:
       actions: read
@@ -24,7 +22,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        targetplatform: [ x64 ]
         language: [ 'csharp' ]
 
     steps:
@@ -39,15 +36,7 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.1
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
-
     - name: Build App
       run: msbuild $env:Solution_Path /p:Configuration=$env:Configuration
       env:
         Configuration: Debug
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
