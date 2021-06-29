@@ -45,10 +45,9 @@ jobs:
         languages: ${{ matrix.language }}
 
     - name: Build App
-      run: msbuild $env:Solution_Path /p:Platform=$env:TargetPlatform /p:Configuration=$env:Configuration
+      run: msbuild $env:Solution_Path /p:Configuration=$env:Configuration
       env:
         Configuration: Debug
-        TargetPlatform: ${{ matrix.targetplatform }}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
