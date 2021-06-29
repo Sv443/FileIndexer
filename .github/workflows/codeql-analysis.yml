@@ -52,6 +52,8 @@ jobs:
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.1
+      with:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
