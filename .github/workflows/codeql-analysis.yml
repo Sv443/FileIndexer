@@ -45,7 +45,7 @@ jobs:
     - name: Build
       run: |
         cd FileIndexer
-        dotnet build FileIndexer.sln --configuration Release --no-restore
+        dotnet build FileIndexer.sln --runtime win10-x64 --configuration Release --no-restore
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
