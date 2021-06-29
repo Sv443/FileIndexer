@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        targetplatform: [ x86, x64 ]
+        # targetplatform: [ x86, x64 ]
         language: [ 'csharp' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
         # Learn more:
@@ -60,10 +60,11 @@ jobs:
         languages: ${{ matrix.language }}
 
     - name: Build App
-      run: msbuild $env:Solution_Path /p:Platform=$env:TargetPlatform /p:Configuration=$env:Configuration
+      # run: msbuild $env:Solution_Path /p:Platform=$env:TargetPlatform /p:Configuration=$env:Configuration
+      run: msbuild $env:Solution_Path /p:Configuration=$env:Configuration
       env:
-        Configuration: Release
-        TargetPlatform: ${{ matrix.targetplatform }}
+        Configuration: Debug
+        # TargetPlatform: ${{ matrix.targetplatform }}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
