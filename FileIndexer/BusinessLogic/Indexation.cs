@@ -5,16 +5,11 @@ using System.IO;
 
 namespace BusinessLogic
 {
-    public class Indexation
+    public static class Indexation
     {
-        public event EventHandler<string> onError;
+        public static event EventHandler<string> onError;
 
-        public Indexation()
-        {
-
-        }
-
-        public List<FileInfo> ReadDirRecursive(string path)
+        public static List<FileInfo> ReadDirRecursive(string path)
         {
             List<FileInfo> fileInfoList = new List<FileInfo>();
 
@@ -36,7 +31,7 @@ namespace BusinessLogic
             }
             catch (Exception ex)
             {
-                onError?.Invoke(this, ex.Message);
+                onError?.Invoke(null, ex.Message);
             }
 
             return fileInfoList;
