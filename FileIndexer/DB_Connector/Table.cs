@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DB_Connector
 {
-    class Class3
+    class Table
     {
     }
 }

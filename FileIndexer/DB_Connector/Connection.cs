@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DB_Connector
 {
-    class Class2
+    public interface IConnection
     {
+        void Connect();
+        bool IsConnected { get; set; }
+        DBAdapter GetAdapter();
     }
 }

@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 
 namespace DB_Connector
 {
-    public class Class1
+    public class MySqlConnection : IConnection
     {
 
-        static Connection()
+        /*static Connection()
         {
             Connection.Adapter = new DBAdapter(DatabaseType.MySql, Instance.NewInstance, "Unnamed-1", 3306, "Database"; "UserID", "Password", "logfile");
 
 
         private string _SqlAdapter;
+        */
 
+        public bool IsConnected { get; set; }
+
+        private DBAdapter _SqlAdapter;
 
         public void Connect()
         {
