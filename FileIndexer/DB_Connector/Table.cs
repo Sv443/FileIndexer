@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DB_Connector
 {
-    public class Class1
+    class Class3
     {
     }
 }
