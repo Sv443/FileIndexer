@@ -6,7 +6,40 @@
         xmlns:local="clr-namespace:FileIndexer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Column="1"
+            Width="100"
+            Height="30"
+            Content="Suchen"
+            Command="{Binding SuchenCommand}"
+            />
+        <StackPanel Height="70">
+            
+            <TextBlock Text="Suche:"
+                       Margin="75 0 0 0"
+                       />
+            <TextBox
+                Width="250"
+                Height="30"
+                Text="{Binding eingabe}"
+                 />
+            
+        </StackPanel>
+
+        <ListView
+            ItemsSource="{Binding ausgabe}"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            />
     </Grid>
 </Window>
