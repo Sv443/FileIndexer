@@ -7,38 +7,52 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
+    public struct FileChange
+    {
+        public FileInfo file;
+        public WatcherChangeTypes type;
+    }
+
     public class Daemon
     {
         private string path;
         private FileSystemWatcher watcher;
 
-        public event EventHandler<FileInfo[]> onChange;
+        public event EventHandler<FileChange> onChange;
 
-        public Daemon(string path, bool recursive = true)
+        public Daemon(string path, bool recursive = true, string filter = "*.*")
         {
             this.path = path;
 
             watcher = new FileSystemWatcher(this.path);
+
             watcher.IncludeSubdirectories = recursive;
-            watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName;
+            watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+            watcher.Filter = filter;
+
             watcher.Changed += OnFilesChanged;
+            /*watcher.Created += OnFilesChanged;
+            watcher.Deleted += OnFilesChanged;
+            watcher.Renamed += OnFilesChanged;*/
+
+            watcher.EnableRaisingEvents = true;
         }
 
         private void OnFilesChanged(object sender, FileSystemEventArgs e)
         {
-            FileInfo[] changedFilesList = { };
+            FileChange change = new FileChange();
+            change.file = new FileInfo(e.FullPath);
 
-            // TODO
+            onChange?.Invoke(this, change);
+        }
 
-            onChange?.Invoke(this, changedFilesList);
-
-            /*
-            if (e.ChangeType != WatcherChangeTypes.Changed)
-            {
-                return;
-            }
-            Console.WriteLine($"Changed: {e.FullPath}");
-            */
+        /// <summary>
+        /// Disposes of the daemon's FileSystemWatcher
+        /// </summary>
+        public void Dispose()
+        {
+            watcher.Changed -= OnFilesChanged;
+            this.watcher.Dispose();
         }
     }
 }
