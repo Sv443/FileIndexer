@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 
 namespace BusinessLogic
@@ -35,6 +36,34 @@ namespace BusinessLogic
             }
 
             return fileInfoList;
+        }
+    }
+
+    public class ThreadedIndexation
+    {
+        public static event EventHandler onFinish;
+
+        private Thread thread;
+
+        ThreadedIndexation(string path)
+        {
+            thread = new Thread(new ThreadStart(() => ThreadProc(path)));
+        }
+
+        /// <summary>
+        /// Gets executed when the thread starts
+        /// </summary>
+        public static void ThreadProc(string path)
+        {
+            List<FileInfo> fileList = Indexation.ReadDirRecursive(path);
+        }
+
+        /// <summary>
+        /// Runs the thread
+        /// </summary>
+        public void Run()
+        {
+            thread.Start();
         }
     }
 }
