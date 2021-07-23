@@ -23,6 +23,8 @@ namespace FileIndexer
         public MainWindow()
         {
             InitializeComponent();
+
         }
+
     }
 }
