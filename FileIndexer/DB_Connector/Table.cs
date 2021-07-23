@@ -32,7 +32,7 @@ namespace DB_Connector
         protected abstract void Initialize();
         protected IConnection _Connection;
         protected List<T> _LoadedData = null;
-        protected abstract void LoadObjects ()
+        protected abstract void LoadObjects();
 
 
     }
