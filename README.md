@@ -44,8 +44,8 @@ Optionale Features:
 
 - Wir erstellen für bestimmte Features ein Issue ([hier](https://github.com/Sv443/FileIndexer/issues/new/choose))
 - Wir fügen dieses Issue dann in unser Projekt-Board ein ([hier](https://github.com/Sv443/FileIndexer/projects/1)), das macht alle Aufgaben und deren Status übersichtlich
-- Im Kanban-Board werden dann die Issues bearbeitet und geschlossen, wenn sie fertig sind
-- Jedes Feature bekommt seinen eigenen Branch (sehr wichtig, erkläre ich noch) und die werden dann per Pull Request ([hier](https://github.com/Sv443/FileIndexer/pulls)) auf den Haupt-Code (`main` Branch) übertragen
+- Im Projekt-Board werden dann die Issues bearbeitet und geschlossen, wenn sie fertig sind
+- Jeder bekommt seinen eigenen Branch und die werden dann per Pull Request ([hier](https://github.com/Sv443/FileIndexer/pulls)) auf den Haupt-Code (`main` Branch) übertragen
 
 <br><br>
 
