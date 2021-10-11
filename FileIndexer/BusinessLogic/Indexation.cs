@@ -6,11 +6,14 @@ using System.Threading;
 
 namespace BusinessLogic
 {
+    /// <summary>
+    /// Synchronous indexation
+    /// </summary>
     public static class Indexation
     {
-        public static event EventHandler<string> onError;
+        public static event EventHandler<string> OnError;
 
-        public static List<FileInfo> ReadDirRecursive(string path)
+        public static List<FileInfo> ReadDirRecursive(string path, uint depth = 6)
         {
             List<FileInfo> fileInfoList = new List<FileInfo>();
 
@@ -28,41 +31,63 @@ namespace BusinessLogic
                     return fileInfoList;
 
                 foreach (DirectoryInfo dir in dirs)
-                    return ReadDirRecursive(dir.FullName);
+                    if (depth > 0)
+                        return ReadDirRecursive(dir.FullName, (depth - 1));
             }
             catch (Exception ex)
             {
-                onError?.Invoke(null, ex.Message);
+                OnError?.Invoke(null, ex.Message);
             }
 
             return fileInfoList;
         }
     }
 
+    /// <summary>
+    /// Asynchronous indexation based on threading to optimize performance
+    /// </summary>
     public class ThreadedIndexation
     {
-        public static event EventHandler onFinish;
+        public event EventHandler<List<FileInfo>> OnFinish;
+        public event EventHandler<string> OnError;
 
-        private Thread thread;
+        private readonly Thread thread;
+        private bool errored = false;
 
-        ThreadedIndexation(string path)
+        public ThreadedIndexation(string path)
         {
             thread = new Thread(new ThreadStart(() => ThreadProc(path)));
+
+            thread.Name = "ThreadedIndexation";
         }
 
-        /// <summary>
-        /// Gets executed when the thread starts
-        /// </summary>
-        public static void ThreadProc(string path)
+        private void ThreadProc(string path)
         {
+            Indexation.OnError += HandleError;
+
             List<FileInfo> fileList = Indexation.ReadDirRecursive(path);
+
+            if (!errored)
+                OnFinish?.Invoke(null, fileList);
+            else
+                HandleError(null, "Unknown error");
+        }
+
+        private void HandleError(object sender, string error)
+        {
+            errored = true;
+
+            OnError?.Invoke(this, error);
         }
 
         /// <summary>
-        /// Runs the thread
+        /// Runs the indexation.
+        /// Subscribe to the event OnFinish to receive the result.
+        /// Subscribe to OnError to receive error messages.
         /// </summary>
         public void Run()
         {
+            errored = false;
             thread.Start();
         }
     }
