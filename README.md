@@ -4,8 +4,9 @@
 
 # FileIndexer
 
-### SAE Projekt - E2FI5 - Gruppe 2
-
+### SAE Projekt - E2FI5 - Gruppe 2  
+(this was a school project)  
+  
 <!-- evtl hier bild(er) vom programm -->
 
 ---
