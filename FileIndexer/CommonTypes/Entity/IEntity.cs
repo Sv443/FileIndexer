@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DB_Connector
+namespace CommonTypes
 {
-    class Class4
+    public interface IEntity
     {
+        int ID { get; set; }
     }
 }
